@@ -1,4 +1,6 @@
 const Todo = require('../models/Todo')
+const Post = require('../models/Post')
+const { post } = require('../routes/main')
 
 module.exports = {
     getTodos: async (req,res)=>{
@@ -51,5 +53,13 @@ module.exports = {
         }catch(err){
             console.log(err)
         }
+    },
+    getFeed: async (req, res) => {
+    try {
+      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
+      res.render("feed.ejs", { posts: posts, title: posts.title, idea: posts.idea});
+    } catch (err) {
+      console.log(err);
     }
+  }
 }    

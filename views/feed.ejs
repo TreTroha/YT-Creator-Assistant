@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creator Feed</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="logo">
+        <h4><span id="pop">Creators</span> Cabinet</h4>
+      </div>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/login">Login</a></li>
+        <li><a href="/signup">Register</a></li>
+      </ul>
+      <div class="burger">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+    </nav>
+    <div class="container">
+      <div>
+        <h2>Add a post</h2>
+        <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+          <div>
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" name="title">
+          </div>
+          <div>
+          <label for="idea" class="form-label">Idea</label>
+          <input type="idea" class="form-control" id="idea" name="idea">
+          </div>
+          <div>
+            <label for="timeline" class="form-label">Post Date</label>
+            <input type="date" class="form-control" id="timeline">
+          </div>
+          <div>
+            <label for="imgUpload" class="form-label">Thumbnail</label>
+            <input type="file" class="form-control" id="imageUpload" name="file">
+          </div>
+          <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+        </form>
+      </div>
+      <div>
+        <h1> Open Projects </h1>
+        <ul>
+          <!-- <% posts.forEach( el => { %>
+            <li>
+              <a href="<%= posts.image%>">
+                <img src="<%= posts.image%>" alt="Thumbnail">
+              </a>
+              <div class="col-3 mt-5">
+                <h2>
+                  <%= posts.title %>
+                </h2>
+                <p>
+                  <%= posts.idea %>
+                </p>
+              </div>
+              <form action="/post/deletePost/<%= posts.id %>?_method=DELETE" method="POST" class="col-3">
+                <button class="btn btn-primary fa fa-trash" type="submit"></button>
+              </form>
+            </li>
+          <% }) %> -->
+          </ul>
+      </div>
+    </div>  
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
