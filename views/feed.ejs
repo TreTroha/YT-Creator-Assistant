@@ -57,12 +57,12 @@
       <div>
         <h1> Open Projects </h1>
         <ul>
-          <!-- <% posts.forEach( el => { %>
-            <li>
+          <% posts.forEach( el => { %>
+            <li  class="4-grid">
               <a href="<%= posts.image%>">
                 <img src="<%= posts.image%>" alt="Thumbnail">
               </a>
-              <div class="col-3 mt-5">
+              <div>
                 <h2>
                   <%= posts.title %>
                 </h2>
@@ -74,10 +74,12 @@
                 <button class="btn btn-primary fa fa-trash" type="submit"></button>
               </form>
             </li>
-          <% }) %> -->
+          <% }) %>
           </ul>
       </div>
     </div>  
+
+    <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
   </body>

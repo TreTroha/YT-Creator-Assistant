@@ -5,13 +5,16 @@ const Post = require("../models/Post");
 module.exports = {
   getPost: async (req, res) => {
     try {
-      const post = await Post.findById(req.params.id);
+      const post = await Post.find({userId:req.user.id});
+      console.log(post)
       // const title = await Post.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { post: post, user: req.user, title: post.title, idea: post.idea});
+      res.render("feed.ejs", { posts: post});
+      // , user: req.user, title: post.title, idea: post.idea
     } catch (err) {
       console.log(err);
     }
   },
+
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary
@@ -31,6 +34,7 @@ module.exports = {
       console.log(err);
     }
   },
+
   deletePost: async (req, res) => {
     try {
       // Find post by id
@@ -40,9 +44,9 @@ module.exports = {
       // Delete post from db
       await Post.remove({ _id: req.params.id });
       console.log("Deleted Post");
-      res.redirect("/profile");
+      res.redirect("/feed");
     } catch (err) {
-      res.redirect("/profile");
+      res.redirect("/feed");
     }
   },
 };
