@@ -133,3 +133,57 @@ transform: rotate(45deg) translate(-5px, -5px);
     justify-content: center;
     text-align: center;
 }
+
+.addPost{
+    text-align: center;
+}
+
+.project{
+    text-align: center;
+}
+
+.submitForm{
+    width: 50%;
+    margin: auto;
+    text-align: center;
+}
+
+.imgSubmit{ 
+    position: relative;
+    margin: auto;
+}
+
+/* Need to style Image upload section still. */
+
+.grid-2{
+    display: grid;
+    grid-template-columns: repeat(1, 2fr);
+}
+
+.grid-2 button{
+    position: relative;
+    margin: auto
+}
+
+.grid-2:first-of-type{
+    margin-top: 1em
+}
+
+.grid-2 div label{
+    display: block;
+}
+
+.grid-4{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 2rem;
+
+}
+
+.grid-4 li{
+    list-style: none;
+}
+
+img{
+    height: 35vh;
+}

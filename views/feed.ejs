@@ -22,7 +22,9 @@
       </div>
       <ul class="nav-links">
         <li><a href="/">Home</a></li>
-        <li><a href="/login">Login</a></li>
+        <li>
+          <a href="/logout">Logout</a>
+        </li>
         <li><a href="/signup">Register</a></li>
       </ul>
       <div class="burger">
@@ -32,45 +34,45 @@
       </div>
     </nav>
     <div class="container">
-      <div>
-        <h2>Add a post</h2>
-        <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+      <div class="submitForm">
+        <h2 class="addPost">Add A Project</h2>
+        <form class="grid-2" action="/post/createPost" enctype="multipart/form-data" method="POST">
           <div>
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" name="title">
+            <label for="title" class="form-label">Video Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="Video Title">
           </div>
           <div>
-          <label for="idea" class="form-label">Idea</label>
+          <label for="idea" class="form-label">Video Concept/Idea</label>
           <input type="idea" class="form-control" id="idea" name="idea">
           </div>
           <div>
             <label for="timeline" class="form-label">Post Date</label>
             <input type="date" class="form-control" id="timeline">
           </div>
-          <div>
-            <label for="imgUpload" class="form-label">Thumbnail</label>
-            <input type="file" class="form-control" id="imageUpload" name="file">
+          <div class="imgUpload">
+            <label for="imgUpload" class="form-label">Thumbnail/Inspiration</label>
+            <input type="file" class="form-control imgSubmit" id="imageUpload" name="file">
           </div>
           <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
         </form>
       </div>
       <div>
-        <h1> Open Projects </h1>
-        <ul>
+        <h1 class="project"> Open Projects </h1>
+        <ul  class="grid-4">
           <% posts.forEach( el => { %>
-            <li  class="4-grid">
-              <a href="<%= posts.image%>">
-                <img src="<%= posts.image%>" alt="Thumbnail">
+            <li>
+              <a href="<%= el.image%>">
+                <img src="<%= el.image%>" alt="Thumbnail">
               </a>
               <div>
                 <h2>
-                  <%= posts.title %>
+                  <%= el.title %>
                 </h2>
                 <p>
-                  <%= posts.idea %>
+                  <%= el.idea %>
                 </p>
               </div>
-              <form action="/post/deletePost/<%= posts.id %>?_method=DELETE" method="POST" class="col-3">
+              <form action="/post/deletePost/<%= el.id %>?_method=DELETE" method="POST" class="col-3">
                 <button class="btn btn-primary fa fa-trash" type="submit"></button>
               </form>
             </li>
@@ -78,8 +80,6 @@
           </ul>
       </div>
     </div>  
-
-    <a href="/logout">Logout</a>
 
     <script src="js/main.js"></script>
   </body>
