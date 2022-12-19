@@ -15,6 +15,10 @@ module.exports = {
     }
   },
 
+  getNewVideo: (req,res)=>{
+      res.render('newVideo.ejs')
+  },
+
   createPost: async (req, res) => {
     try {
       // Upload image to cloudinary
