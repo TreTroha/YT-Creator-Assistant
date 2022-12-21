@@ -8,7 +8,7 @@ module.exports = {
       const post = await Post.find({userId:req.user.id});
       console.log(post)
       // const title = await Post.find({post: req.params.id}).sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: post});
+      res.render("feed.ejs", {posts: post});
       // , user: req.user, title: post.title, idea: post.idea
     } catch (err) {
       console.log(err);
